@@ -4,9 +4,9 @@ public class Constants
 {
   // drive train speed controllers
   public static final int
-  	 L_DRV_MSTR_ID = 22, L_DRV_SLV1_ID = 24, L_DRV_SLV2_ID = 26,
+  	 L_DRV_MSTR_ID = 22, L_DRV_SLV1_ID = 24, L_DRV_SLV2_ID = 30,
 
-     R_DRV_MSTR_ID = 28, R_DRV_SLV1_ID = 30, R_DRV_SLV2_ID = 32,
+     R_DRV_MSTR_ID = 28, R_DRV_SLV1_ID = 26, R_DRV_SLV2_ID = 32,
 
      DROP_WHL_ID = 34;
 
