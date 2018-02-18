@@ -61,6 +61,9 @@ public class Arm extends Subsystem
       adjustElbow(elbowPos);
       adjustShoulder(shoulderPos);
     }
+//	 rElbow.set(speed);
+    System.out.println("Left Elbow Speed: " + lElbow.get());
+    System.out.println("Right Elbow Speed: " + rElbow.get());
   }
 
   // right motor will follow the left
@@ -103,7 +106,7 @@ public class Arm extends Subsystem
     } else if (encoder.lShoulder_Raw() < Constants.SHOULDER_TO_BAR * 0.9) {
       // else if lower arm is not fully extended, extend lower arm
       lShoulder.set(speed);
-      lElbow.set(0.05);
+      lElbow.set(0.1);
     } else {
       System.out.println("extending both now....");
 
@@ -128,7 +131,7 @@ public class Arm extends Subsystem
 
   private void retract(double speed) {
     // gravity will help you retract
-    speed *= 0.3;
+    speed *= 0.4;
     // limit switches return false when pressed
     // if both are above the bar, move both at once
     if (encoder.lShoulder_Raw() > Constants.SHOULDER_TO_BAR
@@ -139,17 +142,17 @@ public class Arm extends Subsystem
 
     } else {
       // don't slam
-      speed = 0.1;
+//      speed += 0.15;
       // if they are below the bar, move one at a time
       // if lower arm is not retracted, retract lower arm
       if (encoder.lShoulder_Raw() > 200) {
-        lShoulder.set(speed);
+        lShoulder.set(speed + 0.4);
         lElbow.set(0.05);
       } else if (encoder.lElbow_Raw() > 3000) {
         // else if upper arm is not retracted, retract upper arm
         lShoulder.set(0.05);
         // elbow moves faster than the shoulder
-        lElbow.set(speed * Constants.ELBOW_RELATIVE_SPD);
+        lElbow.set(speed * Constants.ELBOW_RELATIVE_SPD + 0.1);
       }
 
     }
@@ -157,6 +160,14 @@ public class Arm extends Subsystem
 
   public void resetEncoders() {
     encoder.ArmReset();
+  }
+  
+  public void resetElbowPosition(){
+	  elbowPos = 0;
+	
+  }
+  public void resetShoulderPosition(){
+	  shoulderPos = 0;
   }
 
 }

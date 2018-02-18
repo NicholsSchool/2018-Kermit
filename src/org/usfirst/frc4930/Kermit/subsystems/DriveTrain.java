@@ -33,7 +33,10 @@ public class DriveTrain extends Subsystem {
     public void tankDrive() {
     	double left = -Robot.oi.j0.getY();
     	double right = -Robot.oi.j1.getY();
-    	move(left, right);
+    	RobotMap.rDrvMSTR.set(left);
+//    	System.out.println("Right Master" + RobotMap.rDrvMSTR.get());
+//    	System.out.println("Right Slave 1" + RobotMap.rDrvSlv1.get());
+  //  	move(left, right);
     }
     
     public void setPosition(double position) {

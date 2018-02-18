@@ -6,6 +6,7 @@ import org.usfirst.frc4930.Kermit.commands.EngagePTO;
 import org.usfirst.frc4930.Kermit.sensors.*;
 import org.usfirst.frc4930.Kermit.subsystems.*;
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -31,11 +32,12 @@ public class Robot extends TimedRobot
   public static Dial timeDelayDial;
   public static Arm arm;
   public static Cameras cameras;
+  public static LimitSwitch limitSwitch;
   public static Mast mast;
 
   // ALL THESE VALUES NEED TO BE CHECKED TO SEE HOW SOLENOID STATE RELATES TO ROBOT
   public static boolean shifterInLowGear = true;
-  public static boolean ptoOn = true;
+  public static boolean ptoOn = false;
   public static boolean dropped = false;
   public static boolean clawOpen = false;
 
@@ -55,6 +57,7 @@ public class Robot extends TimedRobot
     timeDelayDial = new Dial(RobotMap.timeDelayPot);
     arm = new Arm();
     cameras = new Cameras();
+    limitSwitch = new LimitSwitch();
     mast = new Mast();
     // OI must be constructed after subsystems.
     oi = new OI();
@@ -82,6 +85,7 @@ public class Robot extends TimedRobot
   @Override
   public void autonomousPeriodic() {
     Scheduler.getInstance().run();
+    limitSwitch.checkForChange();
   }
 
   @Override
@@ -99,15 +103,23 @@ public class Robot extends TimedRobot
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-
-    SmartDashboard.putBoolean("Compressor Enabled: ", RobotMap.compressor.enabled());
-    SmartDashboard.putBoolean("Shifter (Solenoid 0)", RobotMap.solenoid0.get());
-    SmartDashboard.putBoolean("PTO (Solenoid 1)", RobotMap.solenoid1.get());
-    SmartDashboard.putBoolean("DropWheel (Solenoid 2)", RobotMap.solenoid2.get());
-    SmartDashboard.putBoolean("Claw (Solenoid 4)", RobotMap.solenoid4.get());
+    limitSwitch.checkForChange();
+//    SmartDashboard.putBoolean("Compressor Enabled: ", RobotMap.compressor.enabled());
+//    SmartDashboard.putBoolean("Shifter (Solenoid 0)", RobotMap.solenoid0.get());
+//    SmartDashboard.putBoolean("PTO (Solenoid 1)", RobotMap.solenoid1.get());
+//    SmartDashboard.putBoolean("DropWheel (Solenoid 2)", RobotMap.solenoid2.get());
+//    SmartDashboard.putBoolean("Claw (Solenoid 4)", RobotMap.solenoid3.get());
 
     SmartDashboard.putNumber("LeftShoulder", RobotMap.lShoulder.get());
-
+    
+    SmartDashboard.putNumber("Right Master",RobotMap.rDrvMSTR.get());
+    SmartDashboard.putNumber("Right Slave 1",RobotMap.rDrvSlv1.get());
+//    System.out.println("Elbow" + RobotMap.lElbow.getSelectedSensorPosition(0));
+//    System.out.println("Shoulder" + RobotMap.lShoulder.getSelectedSensorPosition(0));
+    
+    SmartDashboard.putString("r-elbow ControlMode", RobotMap.rElbow.getControlMode().toString());
+   
+    
     SmartDashboard.putNumber("Left Shoulder Encoder(21):",
         RobotMap.lShoulder.getSelectedSensorPosition(0));
     SmartDashboard.putNumber("Left Elbow Encoder(25):",
@@ -131,10 +143,27 @@ public class Robot extends TimedRobot
     
     SmartDashboard.putNumber("ARM_LERP_T: ", Constants.ARM_LERP_T);
     
+    SmartDashboard.putBoolean("lArmDownLSwitch", limitSwitch.lowerArmDown);
+    SmartDashboard.putBoolean("uArmDownLSwitch", limitSwitch.upperArmDown);
+    SmartDashboard.putBoolean("autoSwitch", limitSwitch.autoSwitch);
+    SmartDashboard.putBoolean("clawLSwitch", limitSwitch.hasCube);
+    
     // two button engage for the pto
     if(oi.j0b7.get() && oi.j0b8.get())
     {
     	new EngagePTO().start();
     }
+    
+    if(oi.j0b10.get()){
+    	RobotMap.lElbow.setSelectedSensorPosition(0, 0, 0);
+    	Robot.arm.resetElbowPosition();
+    }
+    if(oi.j0b9.get()){
+    	RobotMap.lShoulder.setSelectedSensorPosition(0, 0, 0);
+    	Robot.arm.resetShoulderPosition();
+    }
   }
+  
+
+  
 }

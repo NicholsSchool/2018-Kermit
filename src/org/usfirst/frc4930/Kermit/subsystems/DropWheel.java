@@ -11,7 +11,7 @@ public class DropWheel extends Subsystem {
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
-//		setDefaultCommand(new MoveDropWheel());
+		//setDefaultCommand(new MoveDropWheel());
 	}
 
 	public void drop() {

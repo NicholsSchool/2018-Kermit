@@ -46,13 +46,16 @@ public class RobotMap
   public static Solenoid solenoid0;
   public static Solenoid solenoid1;
   public static Solenoid solenoid2;
-  public static Solenoid solenoid4;
-  public static Solenoid solenoid5;
+  public static Solenoid solenoid3;
+
 
   public static AHRS ahrs;
   public static AnalogPotentiometer positionPot;
   public static AnalogPotentiometer timeDelayPot;
   public static DigitalInput lArmDownLSwitch;
+  public static DigitalInput uArmDownLSwitch;
+  public static DigitalInput clawLSwitch;
+  public static DigitalInput autoSwitch;
 
   public static DifferentialDrive driveTank;
 
@@ -82,7 +85,8 @@ public class RobotMap
     lDrvMSTR.setInverted(true);
 
     rDrvMSTR.setInverted(true);
-
+    rDrvSlv1.setInverted(true);
+    
     rShoulder.setInverted(true);
 
     lElbow.setInverted(true);
@@ -115,27 +119,30 @@ public class RobotMap
 
     // Invert Necessary Encoders
     lDrvMSTR.setSensorPhase(true);
+    lShoulder.setSensorPhase(true);
     driveTank = new DifferentialDrive(lDrvMSTR, rDrvMSTR);
     driveTank.setSafetyEnabled(false);
 
     ahrs = new AHRS(SPI.Port.kMXP);
     positionPot = new AnalogPotentiometer(Constants.POSITIONPOT_CHNL, 360, 0);
     timeDelayPot = new AnalogPotentiometer(Constants.DELAYPOT_CHNL, 360, 0);
-    lArmDownLSwitch = new DigitalInput(0);
+    lArmDownLSwitch = new DigitalInput(Constants.LARM_DOWN_LSWITCH_CHNL);
+    uArmDownLSwitch = new DigitalInput(Constants.UARM_DOWN_LSWITCH_CHNL);
+    autoSwitch = new DigitalInput(Constants.AUTO_SWITCH);
+    clawLSwitch = new DigitalInput(Constants.CLAW_LSWITCH_CHNL);
 
     // Pneumatics
     compressor = new Compressor(50);
     solenoid0 = new Solenoid(50, 0);
     solenoid1 = new Solenoid(50, 1);
     solenoid2 = new Solenoid(50, 2);
-    solenoid4 = new Solenoid(50, 4);
-    solenoid5 = new Solenoid(50, 5);
+    solenoid3 = new Solenoid(50, 3);
+
 
     solenoid0.set(true);
     solenoid1.set(true);
     solenoid2.set(true);
-    solenoid4.set(true);
-    solenoid5.set(true);
+    solenoid3.set(true);
   }
 
 }

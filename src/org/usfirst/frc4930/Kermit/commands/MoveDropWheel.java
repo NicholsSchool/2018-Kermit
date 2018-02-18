@@ -15,6 +15,7 @@ public class MoveDropWheel extends Command{
 	}
 	
 	protected void execute(){
+		
 		Robot.dropWheel.pivot();
 	}
 	@Override
