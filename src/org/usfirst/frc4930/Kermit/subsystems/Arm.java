@@ -61,9 +61,7 @@ public class Arm extends Subsystem
       adjustElbow(elbowPos);
       adjustShoulder(shoulderPos);
     }
-//	 rElbow.set(speed);
-    System.out.println("Left Elbow Speed: " + lElbow.get());
-    System.out.println("Right Elbow Speed: " + rElbow.get());
+
   }
 
   // right motor will follow the left

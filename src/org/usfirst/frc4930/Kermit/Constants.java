@@ -46,7 +46,7 @@ public class Constants
   // encoder values for the arm
   public static final int  
   	SHOULDER_EXTENDED = 165000, //163, 164, 174, 179, 184, 
-  	ELBOW_EXTENDED = 750000, //106, 106, 105
+  	ELBOW_EXTENDED = 850000, //106, 106, 105
   	SHOULDER_TO_BAR = 130000, //144000, 123000, 130000, 123000, 115000, 128000, 121000, 123000
   	ELBOW_TO_BAR = 60000, // 88, 98, 98, 97, 
     LOWER_ARM_INCRAMENTS = 40000;
