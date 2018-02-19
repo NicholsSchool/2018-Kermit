@@ -62,10 +62,10 @@ public class Arm extends Subsystem
       retract();
     } else {
 //      System.out.println("Adjusting....");
-//      adjustElbow(elbowPos);
-//      adjustShoulder(shoulderPos);
-    	lElbow.set(0.1);
-    	lShoulder.set(0.05);
+      adjustElbow(elbowPos);
+      adjustShoulder(shoulderPos);
+//    	lElbow.set(0.1);
+//    	lShoulder.set(0.05);
     }
 
   }
