@@ -37,7 +37,7 @@ public class Constants
 	ELBOW_RELATIVE_SPD = 0.7,
 	ARM_LERP_T = 0.85,
   
-  	INTAKE_SPEED = .4,
+  	INTAKE_SPEED = 1.0,
   	OUTTAKE_SPEED = -1.0,
   	
   	LOWER_MAST_SPEED = -0.4,
@@ -66,7 +66,7 @@ public class Constants
 
   // encoder values for the arm
   public static final int  
-  	SHOULDER_EXTENDED = 150000, //163, 164, 174, 179, 184,    **165
+  	SHOULDER_EXTENDED = 145000, //163, 164, 174, 179, 184,    **165
   	ELBOW_EXTENDED = 100000, //106, 106, 105     **85
   	SHOULDER_TO_BAR = 75000, //144000, 123000, 130000, 123000, 115000, 128000, 121000, 123000    **130************
   	ELBOW_TO_BAR = 75000, // 88, 98, 98, 97,    **60

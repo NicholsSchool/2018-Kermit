@@ -13,6 +13,14 @@ public class Claw extends Subsystem{
 		
 	}
 	
+	  public void toggle() {
+		    if (!Robot.clawOpen) {
+		    	open();
+		    } else {
+		    	close();
+		    }
+		  }
+	
 	public void open() {
 		RobotMap.solenoid3.set(true);
 		Robot.clawOpen = true;

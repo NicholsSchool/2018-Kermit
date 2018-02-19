@@ -72,11 +72,11 @@ public class OI
     j2b12 = new JoystickButton(j2, 12);
 
     // Shifter (Solenoid 0)
-    j1b4.whenPressed(new LowGear()); // Set True
-    j1b6.whenPressed(new HighGear()); // Set False
+    j0b1.whenPressed(new HighGear()); // Set False
+    j0b1.whenReleased(new LowGear()); // Set True
 
     // PTO (Solenoid 1)
-    j0b1.whenPressed(new DisengagePTO());
+ //   j0b1.whenPressed(new DisengagePTO());
     // j2b2.whenPressed(new EngagePTO()); //Set False
 
     // Gripper
@@ -89,8 +89,8 @@ public class OI
     j1b1.whileHeld(new MoveDropWheel());
 
     // Claw (Solenoid 4)
-    j2b4.whenPressed(new ClawOpen()); // Set True
-    j2b6.whenPressed(new ClawClose()); // Set False
+    j2b1.whenPressed(new ClawOpen()); // Toggle
+    
 
     // Mast
     j2b10.whileHeld(new RaiseMast());

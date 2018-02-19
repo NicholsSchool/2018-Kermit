@@ -2,7 +2,9 @@
 package org.usfirst.frc4930.Kermit;
 
 import org.usfirst.frc4930.Kermit.autonomous.*;
+import org.usfirst.frc4930.Kermit.commands.DisengagePTO;
 import org.usfirst.frc4930.Kermit.commands.EngagePTO;
+import org.usfirst.frc4930.Kermit.commands.QuickPTO;
 import org.usfirst.frc4930.Kermit.sensors.*;
 import org.usfirst.frc4930.Kermit.subsystems.*;
 
@@ -41,7 +43,7 @@ public class Robot extends TimedRobot
   public static boolean dropped = false;
   public static boolean clawOpen = false;
 
-
+  
   @Override
   public void robotInit() {
     RobotMap.init();
@@ -147,10 +149,17 @@ public class Robot extends TimedRobot
 //    SmartDashboard.putBoolean("clawLSwitch", limitSwitch.hasCube);
     
     // two button engage for the pto
-    if(oi.j0b7.get() && oi.j0b8.get())
+    if(oi.j0b9.get() && oi.j0b10.get() && !ptoOn)
     {
     	new EngagePTO().start();
     }
+    if(oi.j0b9.get() && oi.j0b10.get() && ptoOn){
+    	new DisengagePTO().start();
+    }
+    if(oi.j1b9.get() && oi.j1b10.get()){
+    	new QuickPTO().start();
+    }
+    
     
     if(oi.j0b10.get()){
     	RobotMap.lElbow.setSelectedSensorPosition(0, 0, 0);
