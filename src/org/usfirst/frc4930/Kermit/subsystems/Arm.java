@@ -42,9 +42,11 @@ public class Arm extends Subsystem
 	// limit switches return false when pressed
     if(!Robot.limitSwitch.lowerArmDown) {
     	lShoulder.setSelectedSensorPosition(0, 0, 100);
+    	shoulderPos = 0;
     }
     if(!Robot.limitSwitch.upperArmDown) {
     	lElbow.setSelectedSensorPosition(0, 0, 100);
+    	elbowPos = 0;
     }
   }
   
