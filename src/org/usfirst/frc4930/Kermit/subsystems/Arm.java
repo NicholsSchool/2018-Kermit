@@ -48,6 +48,9 @@ public class Arm extends Subsystem
     	lElbow.setSelectedSensorPosition(0, 0, 100);
     	elbowPos = 0;
     }
+    
+    System.out.println("Shoulder Motor: " + lShoulder.get());
+ //   System.out.println("Elbow Motor: " + lElbow.get());
   }
   
   public void setEncoders(int elbowPos, int shoulderPos) {
@@ -129,18 +132,18 @@ public class Arm extends Subsystem
     // limit switches return false when pressed
     // if the upper arm is not fully extended, extend upper arm
     if (encoder.lElbow_Raw() < Constants.ELBOW_TO_BAR) {
-    	System.out.println("EXTENDING ELBOW");
+    //	System.out.println("EXTENDING ELBOW");
     	// 0.05 will maintain the position
     	lShoulder.set(0.05);
     	// elbow moves faster than the shoulder
     	lElbow.set(Constants.ELBOW_RAISE_SPD_BELOW_BAR);
     } else if (encoder.lShoulder_Raw() < Constants.SHOULDER_TO_BAR) {
-    	System.out.println("EXTENDING SHOULDER");
+    //	System.out.println("EXTENDING SHOULDER");
     	// else if lower arm is not fully extended, extend lower arm
     	lShoulder.set(Constants.SHOULDER_RAISE_SPD_BELOW_BAR);
     	lElbow.set(0.2);
     } else {
-      System.out.println("EXTENDING BOTH");
+    //  System.out.println("EXTENDING BOTH");
 
       	// if both arms are past the bar, run each until they reach the limit
       	if (encoder.lElbow_Raw() < Constants.ELBOW_EXTENDED) {
@@ -165,7 +168,7 @@ public class Arm extends Subsystem
     // if both are above the bar, move both at once
     if (encoder.lShoulder_Raw() > Constants.SHOULDER_TO_BAR
         && encoder.lElbow_Raw() > Constants.ELBOW_TO_BAR) {
-      System.out.println("RETRACTING BOTH");
+    //  System.out.println("RETRACTING BOTH");
       lShoulder.set(Constants.SHOULDER_LOWER_SPD_ABOVE_BAR);
       lElbow.set(Constants.ELBOW_LOWER_SPD_ABOVE_BAR);
 
@@ -173,11 +176,11 @@ public class Arm extends Subsystem
       // if they are below the bar, move one at a time
       // if lower arm is not retracted, retract lower arm
       if (encoder.lShoulder_Raw() > 0) {
-    	  System.out.println("RETRACTING SHOULDER");
+    //	  System.out.println("RETRACTING SHOULDER");
         lShoulder.set(Constants.SHOULDER_LOWER_SPD_BELOW_BAR);
         lElbow.set(0.05);
       } else if (encoder.lElbow_Raw() > 0) {
-    	  System.out.println("RETRACTING ELBOW");
+    //	  System.out.println("RETRACTING ELBOW");
         // else if upper arm is not retracted, retract upper arm
         lShoulder.set(0.05);
         // elbow moves faster than the shoulder
@@ -191,18 +194,18 @@ public class Arm extends Subsystem
 	    // limit switches return false when pressed
 	    // if the upper arm is not fully extended, extend upper arm
 	    if (encoder.lElbow_Raw() < Constants.ELBOW_TO_BAR) {
-	    	System.out.println("EXTENDING ELBOW");
+	   // 	System.out.println("EXTENDING ELBOW");
 	    	// 0.05 will maintain the position
 	    	lShoulder.set(0.05);
 	    	// elbow moves faster than the shoulder
 	    	lElbow.set(Constants.ELBOW_RAISE_SPD_BELOW_BAR_CUBE);
 	    } else if (encoder.lShoulder_Raw() < Constants.SHOULDER_TO_BAR) {
-	    	System.out.println("EXTENDING SHOULDER");
+	   // 	System.out.println("EXTENDING SHOULDER");
 	    	// else if lower arm is not fully extended, extend lower arm
 	    	lShoulder.set(Constants.SHOULDER_RAISE_SPD_BELOW_BAR_CUBE);
 	    	lElbow.set(0.2);
 	    } else {
-	      System.out.println("EXTENDING BOTH");
+	 //     System.out.println("EXTENDING BOTH");
 
 	      	// if both arms are past the bar, run each until they reach the limit
 	      	if (encoder.lElbow_Raw() < Constants.ELBOW_EXTENDED) {
@@ -227,7 +230,7 @@ public class Arm extends Subsystem
 	    // if both are above the bar, move both at once
 	    if (encoder.lShoulder_Raw() > Constants.SHOULDER_TO_BAR
 	        && encoder.lElbow_Raw() > Constants.ELBOW_TO_BAR) {
-	      System.out.println("RETRACTING BOTH");
+	    //  System.out.println("RETRACTING BOTH");
 	      lShoulder.set(Constants.SHOULDER_LOWER_SPD_ABOVE_BAR_CUBE);
 	      lElbow.set(Constants.ELBOW_LOWER_SPD_ABOVE_BAR_CUBE);
 
@@ -235,11 +238,11 @@ public class Arm extends Subsystem
 	      // if they are below the bar, move one at a time
 	      // if lower arm is not retracted, retract lower arm
 	      if (encoder.lShoulder_Raw() > 0) {
-	    	  System.out.println("RETRACTING SHOULDER");
+	    //	  System.out.println("RETRACTING SHOULDER");
 	        lShoulder.set(Constants.SHOULDER_LOWER_SPD_BELOW_BAR_CUBE);
 	        lElbow.set(0.05);
 	      } else if (encoder.lElbow_Raw() > 0) {
-	    	  System.out.println("RETRACTING ELBOW");
+	    //	  System.out.println("RETRACTING ELBOW");
 	        // else if upper arm is not retracted, retract upper arm
 	        lShoulder.set(0.05);
 	        // elbow moves faster than the shoulder
