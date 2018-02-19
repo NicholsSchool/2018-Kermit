@@ -63,26 +63,26 @@ public class Arm extends Subsystem
   public void set(double speed) {
     if (speed > 0.2) {
       updatePosition();
-      if(!Robot.limitSwitch.hasCube) {
+//      if(!Robot.limitSwitch.hasCube) {
+//    	  extendWithCube();
+//      } else {
     	  extendWithCube();
-      } else {
-    	  extend();
-      }
+//      }
     } else if (speed < -0.2) {
       updatePosition();
-      if(!Robot.limitSwitch.hasCube) {
+//      if(!Robot.limitSwitch.hasCube) {
+//    	  retractWithCube();
+//      } else {
     	  retractWithCube();
-      } else {
-    	  retract();
-      }
+//      }
     } else {
-    	if(!Robot.limitSwitch.hasCube) {
+//    	if(!Robot.limitSwitch.hasCube) {
+//    		adjustElbowWithCube(elbowPos);
+//    		adjustShoulderWithCube(shoulderPos);
+//    	} else {
     		adjustElbowWithCube(elbowPos);
     		adjustShoulderWithCube(shoulderPos);
-    	} else {
-    		adjustElbow(elbowPos);
-    		adjustShoulder(shoulderPos);
-    	}
+//    	}
     }
 
   }
