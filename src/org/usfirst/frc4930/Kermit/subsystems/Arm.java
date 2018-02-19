@@ -28,6 +28,7 @@ public class Arm extends Subsystem
   private double elbowPos = 0;
   private double shoulderPos = 0;
 
+  
   // DigitalInput uArmDownLSwitch = RobotMap.uArmDownLSwitch;
   DigitalInput lArmDownLSwitch = RobotMap.lArmDownLSwitch;
 
@@ -63,26 +64,27 @@ public class Arm extends Subsystem
   public void set(double speed) {
     if (speed > 0.2) {
       updatePosition();
-//      if(!Robot.limitSwitch.hasCube) {
-//    	  extendWithCube();
-//      } else {
+      if(Robot.clawOpen) {
+    	  extend();
+    	  
+      } else {
     	  extendWithCube();
-//      }
+      }
     } else if (speed < -0.2) {
       updatePosition();
-//      if(!Robot.limitSwitch.hasCube) {
-//    	  retractWithCube();
-//      } else {
+      if(Robot.clawOpen) {
+    	  retract();
+      } else {
     	  retractWithCube();
-//      }
+      }
     } else {
-//    	if(!Robot.limitSwitch.hasCube) {
-//    		adjustElbowWithCube(elbowPos);
-//    		adjustShoulderWithCube(shoulderPos);
-//    	} else {
+    	if(Robot.clawOpen) {
+    		adjustElbow(elbowPos);
+    		adjustShoulder(shoulderPos);
+    	} else {
     		adjustElbowWithCube(elbowPos);
     		adjustShoulderWithCube(shoulderPos);
-//    	}
+    	}
     }
 
   }
@@ -253,6 +255,16 @@ public class Arm extends Subsystem
 
 	    }
 	  }
+
+//	  public void forceExtend() {
+//		  lElbow.set(0.8);
+//		  if(lElbow.getSelectedSensorPosition(0) >= Constants.ELBOW_TO_BAR){
+//			  lShoulder.set(1.0);
+//			  if(lShoulder.getSelectedSensorPosition(0) >= Constants.SHOULDER_TO_BAR){
+//				  lShoulder.set(0.05);
+//			  }
+//		  }
+//	  }
 
   public void resetEncoders() {
     encoder.ArmReset();
