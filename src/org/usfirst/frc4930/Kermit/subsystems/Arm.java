@@ -49,7 +49,9 @@ public class Arm extends Subsystem
     	elbowPos = 0;
     }
     
-    System.out.println("Shoulder Motor: " + lShoulder.get());
+    
+   // System.out.println("Shoulder Motor: " + lShoulder.get());
+    System.out.println("Shoulder Motor Current: " + lShoulder.getMotorOutputVoltage());
  //   System.out.println("Elbow Motor: " + lElbow.get());
   }
   
