@@ -69,11 +69,13 @@ public class Arm extends Subsystem
     	  retract();
       }
     } else {
-//      System.out.println("Adjusting....");
-      adjustElbow(elbowPos);
-      adjustShoulder(shoulderPos);
-//    	lElbow.set(0.1);
-//    	lShoulder.set(0.05);
+    	if(!Robot.limitSwitch.hasCube) {
+    		adjustElbowWithCube(elbowPos);
+    		adjustShoulderWithCube(shoulderPos);
+    	} else {
+    		adjustElbow(elbowPos);
+    		adjustShoulder(shoulderPos);
+    	}
     }
 
   }
@@ -85,7 +87,7 @@ public class Arm extends Subsystem
   }
 
   private void adjustElbow(double position) {
-    lElbow.config_kP(0, 0.0, 0);
+    lElbow.config_kP(0, 0.3, 0);
     lElbow.config_kI(0, 0.0, 0);
     lElbow.config_kD(0, 0.0, 0);
 
@@ -93,11 +95,27 @@ public class Arm extends Subsystem
   }
 
   private void adjustShoulder(double position) {
-    lShoulder.config_kP(0, 0.0, 0);
+    lShoulder.config_kP(0, 0.3, 0);
     lShoulder.config_kI(0, 0.0, 0);
     lShoulder.config_kD(0, 0.0, 0);
 
     lShoulder.set(ControlMode.Position, position);
+  }
+  
+  private void adjustElbowWithCube(double position) {
+	    lElbow.config_kP(0, 0.5, 0);
+	    lElbow.config_kI(0, 0.0, 0);
+	    lElbow.config_kD(0, 0.0, 0);
+
+	    lElbow.set(ControlMode.Position, position);
+	  }
+
+  private void adjustShoulderWithCube(double position) {
+	  lShoulder.config_kP(0, 0.5, 0);
+	  lShoulder.config_kI(0, 0.0, 0);
+	  lShoulder.config_kD(0, 0.0, 0);
+
+	  lShoulder.set(ControlMode.Position, position);
   }
 
   public void updatePosition() {

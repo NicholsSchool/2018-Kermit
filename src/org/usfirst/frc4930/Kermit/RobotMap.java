@@ -132,17 +132,17 @@ public class RobotMap
     clawLSwitch = new DigitalInput(Constants.CLAW_LSWITCH_CHNL);
 
     // Pneumatics
-//    compressor = new Compressor(50);
-//    solenoid0 = new Solenoid(50, 0);
-//    solenoid1 = new Solenoid(50, 1);
-//    solenoid2 = new Solenoid(50, 2);
-//    solenoid3 = new Solenoid(50, 3);
-//
-//
-//    solenoid0.set(true);
-//    solenoid1.set(true);
-//    solenoid2.set(true);
-//    solenoid3.set(true);
+    compressor = new Compressor(50);
+    solenoid0 = new Solenoid(50, 0);
+    solenoid1 = new Solenoid(50, 1);
+    solenoid2 = new Solenoid(50, 2);
+    solenoid3 = new Solenoid(50, 3);
+
+
+    solenoid0.set(true);
+    solenoid1.set(true);
+    solenoid2.set(true);
+    solenoid3.set(true);
   }
 
 }
