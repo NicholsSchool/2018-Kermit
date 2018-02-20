@@ -104,11 +104,11 @@ public class Arm extends Subsystem
   }
 
   private void adjustShoulder(double position) {
-    lShoulder.config_kP(0, 0.3, 0);
-    lShoulder.config_kI(0, 0.0, 0);
-    lShoulder.config_kD(0, 0.0, 0);
-
-    lShoulder.set(ControlMode.Position, position);
+//    lShoulder.config_kP(0, 0.3, 0);
+//    lShoulder.config_kI(0, 0.0, 0);
+//    lShoulder.config_kD(0, 0.0, 0);
+//
+//    lShoulder.set(ControlMode.Position, position);
   }
   
   private void adjustElbowWithCube(double position) {
@@ -120,11 +120,11 @@ public class Arm extends Subsystem
 	  }
 
   private void adjustShoulderWithCube(double position) {
-	  lShoulder.config_kP(0, 0.5, 0);
-	  lShoulder.config_kI(0, 0.0, 0);
-	  lShoulder.config_kD(0, 0.0, 0);
-
-	  lShoulder.set(ControlMode.Position, position);
+//	  lShoulder.config_kP(0, 0.5, 0);
+//	  lShoulder.config_kI(0, 0.0, 0);
+//	  lShoulder.config_kD(0, 0.0, 0);
+//
+//	  lShoulder.set(ControlMode.Position, position);
   }
 
   public void updatePosition() {
