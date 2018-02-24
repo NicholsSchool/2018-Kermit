@@ -12,7 +12,7 @@ public class ClawOpen extends Command{
 		  protected void initialize() {}
 
 		  protected void execute() {
-		    Robot.claw.toggle();
+		    Robot.claw.open();
 		  }
 
 		  protected boolean isFinished() {

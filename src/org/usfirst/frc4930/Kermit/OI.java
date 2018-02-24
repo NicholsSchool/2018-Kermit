@@ -80,8 +80,9 @@ public class OI
     // j2b2.whenPressed(new EngagePTO()); //Set False
 
     // Gripper
-    j2b3.whileHeld(new Intake());
-    j2b5.whileHeld(new Outtake());
+    j2b3.whenPressed(new ClawOpen());
+    j2b5.whenPressed(new ClawClose());
+    j2b4.whileHeld(new Outtake());
 
     // DropWheel (Solenoid 2)
     // j1b9.whenPressed(new LowerDropWheel()); //Set True
@@ -89,7 +90,8 @@ public class OI
     j1b1.whileHeld(new MoveDropWheel());
 
     // Claw (Solenoid 4)
-    j2b1.whenPressed(new ClawOpen()); // Toggle
+//    j2b1.whenPressed(new ClawOpen()); // Toggle
+    j2b1.whileHeld(new Intake());
     
 
     // Mast

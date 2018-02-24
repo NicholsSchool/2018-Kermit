@@ -80,10 +80,22 @@ public class Arm extends Subsystem
     } else {
     	if(Robot.clawOpen) {
     		adjustElbow(elbowPos);
-    		adjustShoulder(shoulderPos);
+    		// only use pid maintain for the shoulder above the bar
+    		if(encoder.lShoulder_Raw() > Constants.SHOULDER_TO_BAR) {
+    			adjustShoulder(shoulderPos);
+    		} else if(Robot.limitSwitch.lowerArmDown) {
+    			// give 10% power if the shoulder is below the bar but above the limit switch
+    			lShoulder.set(0.1);
+    		}
     	} else {
     		adjustElbowWithCube(elbowPos);
-    		adjustShoulderWithCube(shoulderPos);
+    		// only use pid maintain for the shoulder above the bar
+    		if(encoder.lShoulder_Raw() > Constants.SHOULDER_TO_BAR) {
+    			adjustShoulderWithCube(shoulderPos);
+    		} else if(Robot.limitSwitch.lowerArmDown) {
+    			// give 10% power if the shoulder is below the bar but above the limit switch
+    			lShoulder.set(0.1);
+    		}
     	}
     }
 
@@ -112,7 +124,7 @@ public class Arm extends Subsystem
   }
   
   private void adjustElbowWithCube(double position) {
-	    lElbow.config_kP(0, 0.5, 0);
+	    lElbow.config_kP(0, 0.4, 0);
 	    lElbow.config_kI(0, 0.0, 0);
 	    lElbow.config_kD(0, 0.0, 0);
 
@@ -120,7 +132,7 @@ public class Arm extends Subsystem
 	  }
 
   private void adjustShoulderWithCube(double position) {
-	  lShoulder.config_kP(0, 0.5, 0);
+	  lShoulder.config_kP(0, 0.4, 0);
 	  lShoulder.config_kI(0, 0.0, 0);
 	  lShoulder.config_kD(0, 0.0, 0);
 
