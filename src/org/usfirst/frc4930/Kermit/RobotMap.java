@@ -50,12 +50,12 @@ public class RobotMap
 
 
   public static AHRS ahrs;
-  public static AnalogPotentiometer positionPot;
-  public static AnalogPotentiometer timeDelayPot;
+  public static AnalogPotentiometer preference1Pot;
+  public static AnalogPotentiometer preference2Pot;
   public static DigitalInput lArmDownLSwitch;
   public static DigitalInput uArmDownLSwitch;
-  public static DigitalInput clawLSwitch;
-  public static DigitalInput autoSwitch;
+  public static DigitalInput uArmUpLSwitch;
+  public static DigitalInput toggleSwitch;
 
   public static DifferentialDrive driveTank;
 
@@ -124,12 +124,12 @@ public class RobotMap
     driveTank.setSafetyEnabled(false);
 
     ahrs = new AHRS(SPI.Port.kMXP);
-    positionPot = new AnalogPotentiometer(Constants.POSITIONPOT_CHNL, 360, 0);
-    timeDelayPot = new AnalogPotentiometer(Constants.DELAYPOT_CHNL, 360, 0);
+    preference1Pot = new AnalogPotentiometer(Constants.PREFERENCE1_POT_CHNL, 360, 0);
+    preference2Pot = new AnalogPotentiometer(Constants.PREFERENCE2_POT_CHNL, 360, 0);
     lArmDownLSwitch = new DigitalInput(Constants.LARM_DOWN_LSWITCH_CHNL);
     uArmDownLSwitch = new DigitalInput(Constants.UARM_DOWN_LSWITCH_CHNL);
-    autoSwitch = new DigitalInput(Constants.AUTO_SWITCH);
-    clawLSwitch = new DigitalInput(Constants.CLAW_LSWITCH_CHNL);
+    toggleSwitch = new DigitalInput(Constants.TOGGLE_SWITCH_CHNL);
+    uArmUpLSwitch = new DigitalInput(Constants.UARM_UP_LSWITCH_CHNL); //THIS ONE NEEDS TO BE TESTED
 
     // Pneumatics
     compressor = new Compressor(50);
@@ -139,10 +139,10 @@ public class RobotMap
     solenoid3 = new Solenoid(50, 3); //Claw
 
 
-    solenoid0.set(true);  //Shifter
-    solenoid1.set(true);  //PTO
-    solenoid2.set(false); //DropWheel
-    solenoid3.set(true);  //Claw
+    solenoid0.set(Constants.SHIFTER_HIGH_GEAR);  //Shifter Default: High Gear
+    solenoid1.set(Constants.PTO_OFF);  //PTO: Default: Off
+    solenoid2.set(Constants.DROPWHEEL_RAISE); //DropWheel Default: Raised
+    solenoid3.set(Constants.CLAW_CLOSE);  //Claw Default: Closed
   }
 
 }

@@ -2,6 +2,7 @@ package org.usfirst.frc4930.Kermit.subsystems;
 
 import org.usfirst.frc4930.Kermit.Robot;
 import org.usfirst.frc4930.Kermit.RobotMap;
+import org.usfirst.frc4930.Kermit.Constants;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -14,13 +15,13 @@ public class PTO extends Subsystem {
 	}
 	
 	public void turnOff() {
-		RobotMap.solenoid1.set(true);
+		RobotMap.solenoid1.set(Constants.PTO_OFF);
 		Robot.ptoOn = false;
 		
 	}
 	
 	public void turnOn() {
-		RobotMap.solenoid1.set(false);
+		RobotMap.solenoid1.set(Constants.PTO_ON);
 		Robot.ptoOn = true;
 	}
 

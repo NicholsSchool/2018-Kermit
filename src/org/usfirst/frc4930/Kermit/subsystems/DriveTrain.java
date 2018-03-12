@@ -22,21 +22,18 @@ public class DriveTrain extends Subsystem {
 
     public void move(double left, double right) {
     	// if the pto is on, don't turn
-    	if(Robot.ptoOn) {
-    		double average = (left + right) / 2;
-    		left = average;
-    		right = average;
-    	}
+//    	if(Robot.ptoOn) {
+//    		double average = (left + right) / 2;
+//    		left = average;
+//    		right = average;
+//    	}
     	RobotMap.driveTank.tankDrive(left, right);
     }
 
     public void tankDrive() {
     	double left = -Robot.oi.j0.getY();
     	double right = -Robot.oi.j1.getY();
-//    	RobotMap.rDrvMSTR.set(left);
-//    	System.out.println("Right Master" + RobotMap.rDrvMSTR.get());
-//    	System.out.println("Right Slave 1" + RobotMap.rDrvSlv1.get());
-   	move(left, right);
+    	move(left, right);
     }
     
     public void setPosition(double position) {
@@ -64,6 +61,11 @@ public class DriveTrain extends Subsystem {
 		RobotMap.lDrvMSTR.set(ControlMode.Velocity, velocity);
 		RobotMap.rDrvMSTR.set(ControlMode.Velocity, velocity);
     } 
+    
+    public void resetEncoders() {
+    	RobotMap.lDrvMSTR.setSelectedSensorPosition(0, 0, 0);
+    	RobotMap.rDrvMSTR.setSelectedSensorPosition(0, 0, 0);
+    }
     
     public void stop() {
     	RobotMap.driveTank.stopMotor();

@@ -4,15 +4,13 @@ import org.usfirst.frc4930.Kermit.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class QuickPTO extends Command {
+public class ArmMaintainOff extends Command{
 	  protected void initialize() {
-		  Robot.pto.turnOn();
+		  
 	  }
 
 	  protected void execute() {
-		 if( timeSinceInitialized() > 0.5) {
-			 Robot.pto.turnOff();
-		 }
+		  Robot.arm.shouldMaintain = false;
 	  }
 
 	  protected boolean isFinished() {

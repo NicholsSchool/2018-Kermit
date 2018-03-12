@@ -9,14 +9,18 @@ public class ClawOpen extends Command{
 		    requires(Robot.claw);
 		  }
 
-		  protected void initialize() {}
+		  protected void initialize() {
+			  Robot.claw.open();
+		  }
 
 		  protected void execute() {
-		    Robot.claw.open();
+		if(timeSinceInitialized() > 0.25){
+			new Intake().execute();
+		      }
 		  }
 
 		  protected boolean isFinished() {
-		    return true;
+		    return !Robot.clawOpen;
 		  }
 
 		  protected void end() {}

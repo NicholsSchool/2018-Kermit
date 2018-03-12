@@ -1,17 +1,8 @@
 
 package org.usfirst.frc4930.Kermit;
 
-import org.usfirst.frc4930.Kermit.commands.ClawClose;
-import org.usfirst.frc4930.Kermit.commands.ClawOpen;
-import org.usfirst.frc4930.Kermit.commands.DisengagePTO;
-import org.usfirst.frc4930.Kermit.commands.HighGear;
-import org.usfirst.frc4930.Kermit.commands.Intake;
-import org.usfirst.frc4930.Kermit.commands.LowGear;
-import org.usfirst.frc4930.Kermit.commands.LowerMast;
-import org.usfirst.frc4930.Kermit.commands.MoveDropWheel;
-import org.usfirst.frc4930.Kermit.commands.Outtake;
-import org.usfirst.frc4930.Kermit.commands.RaiseMast;
-import org.usfirst.frc4930.Kermit.commands.ToggleCamera;
+import org.usfirst.frc4930.Kermit.commands.*;
+
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -72,32 +63,37 @@ public class OI
     j2b12 = new JoystickButton(j2, 12);
 
     // Shifter (Solenoid 0)
-    j0b1.whenPressed(new HighGear()); // Set False
-    j0b1.whenReleased(new LowGear()); // Set True
+    j0b1.whenPressed(new LowGear()); // Set True
+    j0b1.whenReleased(new HighGear()); // Set False
 
     // PTO (Solenoid 1)
- //   j0b1.whenPressed(new DisengagePTO());
-    // j2b2.whenPressed(new EngagePTO()); //Set False
+    j2b8.whenPressed(new EngagePTO()); // Set True;
+    j2b10.whenPressed(new DisengagePTO()); // Set False
+    j1b8.whenPressed(new EngagePTO()); // Set True;
+    j1b10.whenPressed(new DisengagePTO()); // Set False
 
     // Gripper
-    j2b3.whenPressed(new ClawOpen());
-    j2b5.whenPressed(new ClawClose());
-    j2b4.whileHeld(new Outtake());
+    j2b3.whileHeld(new Intake());
+    j2b5.whileHeld(new Outtake());
 
     // DropWheel (Solenoid 2)
     // j1b9.whenPressed(new LowerDropWheel()); //Set True
     // j1b10.whenPressed(new RaiseDropWheel()); //Set False
-    j1b1.whileHeld(new MoveDropWheel());
+    j1b1.whenPressed(new MoveDropWheel());
+    j1b1.whenReleased(new RaiseDropWheel());
 
     // Claw (Solenoid 4)
-//    j2b1.whenPressed(new ClawOpen()); // Toggle
-    j2b1.whileHeld(new Intake());
+    j2b1.whileHeld(new ClawOpen()); // Set True 
+    j2b1.whenReleased(new ClawClose()); // Set False 
+
+    j2b9.whenPressed(new ArmMaintainOn());
+    j2b10.whenPressed(new ArmMaintainOff());
+
+  //  j0b8.whenPressed(new BBGoDistance(4, true, 0.8));
     
-
-    // Mast
-    j2b10.whileHeld(new RaiseMast());
-    j2b12.whileHeld(new LowerMast());
-
+//    j0b10.whenPressed(new ArmToPosition(Arm.SWITCH_POSITION, 1.0));
+//    j0b11.whenPressed(new ArmToPosition(Arm.SCALE_POSITION, 1.0));
+//    j0b12.whenPressed(new ArmToPosition(Arm.DOWN_POSITION, 1.0));
     j2b7.whenPressed(new ToggleCamera());
 
   }

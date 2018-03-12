@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 dist/
 .gradle
 bin/
@@ -10,3 +11,17 @@ out/
 .DS_Store
 sysProps.xml
 dist/
+=======
+dist/
+.gradle
+bin/
+build/
+classes/
+.idea/
+gen/
+out/
+*~
+.DS_Store
+sysProps.xml
+dist/
+>>>>>>> timrek/master

@@ -3,6 +3,7 @@ package org.usfirst.frc4930.Kermit.subsystems;
 import org.usfirst.frc4930.Kermit.Robot;
 import org.usfirst.frc4930.Kermit.RobotMap;
 import org.usfirst.frc4930.Kermit.commands.MoveDropWheel;
+import org.usfirst.frc4930.Kermit.Constants;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -15,12 +16,12 @@ public class DropWheel extends Subsystem {
 	}
 
 	public void drop() {
-		RobotMap.solenoid2.set(true);
+		RobotMap.solenoid2.set(Constants.DROPWHEEL_DROP);
 		Robot.dropped = true;
 	}
 	
 	public void raise() {
-		RobotMap.solenoid2.set(false);
+		RobotMap.solenoid2.set(Constants.DROPWHEEL_RAISE);
 		Robot.dropped = false;
 	}
 	
@@ -30,9 +31,10 @@ public class DropWheel extends Subsystem {
 	
 	public void pivot() {
 		double speed = Robot.oi.j1.getX();
-		/*if(Math.abs(speed) < 0.2) {
-			return;
-		}*/
+	    if (Robot.dropped = true) {
+	        speed = Robot.oi.j1.getX();
+	        set(speed);
+	      }
 		set(speed);
 	}
 	

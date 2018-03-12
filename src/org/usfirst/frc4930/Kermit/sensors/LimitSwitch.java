@@ -8,8 +8,8 @@ public class LimitSwitch extends Subsystem{
 
 	  public boolean lowerArmDown;
 	  public boolean upperArmDown;
-	  public boolean autoSwitch;
-	  public boolean hasCube;
+	  public boolean toggleSwitch;
+	  public boolean upperArmUp;
 	
 	@Override
 	protected void initDefaultCommand() {
@@ -20,8 +20,8 @@ public class LimitSwitch extends Subsystem{
 	public LimitSwitch() {
 	    lowerArmDown = RobotMap.lArmDownLSwitch.get();
 	    upperArmDown = RobotMap.uArmDownLSwitch.get();
-	    autoSwitch = RobotMap.autoSwitch.get();
-	    hasCube = RobotMap.clawLSwitch.get();
+	    toggleSwitch = RobotMap.toggleSwitch.get();
+	    upperArmUp = RobotMap.uArmUpLSwitch.get();
 	}
 	
 	public void checkForChange() {
@@ -31,11 +31,11 @@ public class LimitSwitch extends Subsystem{
 		if(upperArmDown != RobotMap.uArmDownLSwitch.get()){
 			upperArmDown = !upperArmDown;
 		}
-		if(hasCube != RobotMap.clawLSwitch.get()){
-			hasCube = !hasCube;
+		if(upperArmUp != RobotMap.uArmUpLSwitch.get()){
+		    upperArmUp = upperArmUp;
 		}
-		if(autoSwitch != RobotMap.autoSwitch.get()){
-			autoSwitch = !autoSwitch;
+		if(toggleSwitch != RobotMap.toggleSwitch.get()){
+			toggleSwitch = !toggleSwitch;
 		}
 		
 	}
