@@ -11,30 +11,16 @@
 	<classpathentry exported="true" kind="lib" path="lib/CTRE_Phoenix-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/CTRE_Phoenix.jar" sourcepath="lib/CTRE_Phoenix-sources.jar">
 		<attributes>
-<<<<<<< HEAD
 			<attribute name="javadoc_location" value="jar:platform:/resource/Kermit/lib/CTRE_Phoenix-javadoc.jar!/"/>
-=======
-			<attribute name="javadoc_location" value="jar:platform:/resource/Timrek/lib/CTRE_Phoenix-javadoc.jar!/"/>
->>>>>>> timrek/master
 		</attributes>
 	</classpathentry>
 	<classpathentry exported="true" kind="var" path="USERLIBS_DIR/CTRE_Phoenix-sources.jar"/>
 	<classpathentry exported="true" kind="var" path="USERLIBS_DIR/CTRE_Phoenix.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/navx_frc.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/Pathfinder-Java-1.8.jar"/>
-	<classpathentry kind="var" path="navx-mxp"/>
-<<<<<<< HEAD
 	<classpathentry kind="var" path="USERLIBS_DIR/Pathfinder-Java-1.8.jar"/>
 	<classpathentry kind="var" path="USERLIBS_DIR/navx_frc.jar"/>
 	<classpathentry kind="var" path="USERLIBS_DIR/CTRLib.jar"/>
-=======
-	<classpathentry kind="var" path="USERLIBS_DIR/CTRLib.jar"/>
-
-	<classpathentry exported="true" kind="var" path="navx-mxp"/>
 	<classpathentry kind="var" path="USERLIBS_DIR/CTRE_Phoenix-javadoc.jar"/>
-	<classpathentry kind="var" path="USERLIBS_DIR/Pathfinder-Java-1.8.jar"/>
-	<classpathentry kind="var" path="USERLIBS_DIR/navx_frc.jar"/>
-
->>>>>>> timrek/master
 	<classpathentry kind="output" path="bin"/>
 </classpath>

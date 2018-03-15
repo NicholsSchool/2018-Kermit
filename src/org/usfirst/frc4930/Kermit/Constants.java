@@ -26,8 +26,8 @@ public class Constants
   	SHIFTER_LOW_GEAR = true,
   	SHIFTER_HIGH_GEAR = false,
   	
-  	PTO_OFF = true,
-  	PTO_ON = false,
+  	PTO_OFF = false,
+  	PTO_ON = true,
   	
   	DROPWHEEL_DROP = true,
   	DROPWHEEL_RAISE = false,
@@ -52,8 +52,8 @@ public class Constants
 	ELBOW_RELATIVE_SPD = 0.6,
 	ARM_LERP_T = 0.85,
   
-  	INTAKE_SPEED = 1.0,
-  	OUTTAKE_SPEED = -1.0,
+  	INTAKE_SPEED = -1.0,
+  	OUTTAKE_SPEED = 1.0,
   	
     GRIPPER_HOLD_SPD = -0.1,
   	

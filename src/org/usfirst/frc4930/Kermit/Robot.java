@@ -1,21 +1,27 @@
 
 package org.usfirst.frc4930.Kermit;
 
-import org.usfirst.frc4930.Kermit.autonomous.*;
-import org.usfirst.frc4930.Kermit.commands.DisengagePTO;
-import org.usfirst.frc4930.Kermit.commands.EngagePTO;
-import org.usfirst.frc4930.Kermit.sensors.*;
-import org.usfirst.frc4930.Kermit.subsystems.*;
-
+import org.usfirst.frc4930.Kermit.autonomous.AutoPaths;
+import org.usfirst.frc4930.Kermit.sensors.Cameras;
+import org.usfirst.frc4930.Kermit.sensors.Dial;
+import org.usfirst.frc4930.Kermit.sensors.LimitSwitch;
+import org.usfirst.frc4930.Kermit.sensors.NavX;
+import org.usfirst.frc4930.Kermit.subsystems.Arm;
+import org.usfirst.frc4930.Kermit.subsystems.Claw;
+import org.usfirst.frc4930.Kermit.subsystems.DriveTrain;
+import org.usfirst.frc4930.Kermit.subsystems.DropWheel;
+import org.usfirst.frc4930.Kermit.subsystems.Gripper;
+import org.usfirst.frc4930.Kermit.subsystems.Mast;
+import org.usfirst.frc4930.Kermit.subsystems.PTO;
+import org.usfirst.frc4930.Kermit.subsystems.Shifter;
+import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
-import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.networktables.*;
 
 public class Robot extends TimedRobot
 {
@@ -99,6 +105,8 @@ public class Robot extends TimedRobot
 	status = "Auto";
 	RobotMap.ahrs.reset();
 	RobotMap.solenoid0.set(Constants.SHIFTER_LOW_GEAR);
+	
+	autonomousCommand = new AutoPaths();
 	
     autonomousCommand = chooser.getSelected();
     // schedule the autonomous command (example)
