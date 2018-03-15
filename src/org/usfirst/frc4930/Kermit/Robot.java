@@ -1,7 +1,6 @@
 
 package org.usfirst.frc4930.Kermit;
 
-import org.usfirst.frc4930.Kermit.autonomous.AutoPaths;
 import org.usfirst.frc4930.Kermit.sensors.Cameras;
 import org.usfirst.frc4930.Kermit.sensors.Dial;
 import org.usfirst.frc4930.Kermit.sensors.LimitSwitch;
@@ -105,8 +104,6 @@ public class Robot extends TimedRobot
 	status = "Auto";
 	RobotMap.ahrs.reset();
 	RobotMap.solenoid0.set(Constants.SHIFTER_LOW_GEAR);
-	
-	autonomousCommand = new AutoPaths();
 	
     autonomousCommand = chooser.getSelected();
     // schedule the autonomous command (example)
