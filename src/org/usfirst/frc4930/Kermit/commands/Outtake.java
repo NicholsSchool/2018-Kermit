@@ -10,9 +10,9 @@ public class Outtake extends Command
 
   private int runTime;
   private double speed;
-  public Outtake(int seconds, double intakeSpeed){
+  public Outtake(int seconds, double outtakeSpeed){
 		  runTime = seconds;
-		  speed = intakeSpeed;
+		  speed = outtakeSpeed;
 		  requires(Robot.gripper);
   }
 	  

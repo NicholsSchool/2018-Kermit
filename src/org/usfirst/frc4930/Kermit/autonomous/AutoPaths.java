@@ -100,6 +100,7 @@ public class AutoPaths extends CommandGroup{
 	
 	//0 WORKING
 	private void driveForward() {
+		RobotMap.lElbow.set(0.2);
 		addSequential(new BBGoDistance(10));
 	}
 	
@@ -336,7 +337,7 @@ public class AutoPaths extends CommandGroup{
 		addSequential(new BBGoDistance(9.4, true, 1.0));
 		addSequential(new BBGoToAngle(secondTurn));													
 		addSequential(new BBGoDistance(0.75));
-		addSequential(new Outtake(5, 0.6));
+		addSequential(new Outtake(5, 0.3));
 	}
 	
 	//10 WORKING
@@ -344,10 +345,12 @@ public class AutoPaths extends CommandGroup{
 		System.out.println("RUNNING MIDDLE PATH");
 		double turn;
 		double secondTurn;
+		double distanceForward;
 		RobotMap.lElbow.set(0.2);
 		if(goLeft){
 			turn = -35;
 			secondTurn = 27;
+			distanceForward = 8;
 			/*
 			 * 		   {}------{}
 			 * 	     
@@ -362,6 +365,7 @@ public class AutoPaths extends CommandGroup{
 		else {
 			turn = 35;
 			secondTurn = -27;
+			distanceForward = 7.1;
 			/*
 			 * 		   {}------{}
 			 * 	     
@@ -375,10 +379,10 @@ public class AutoPaths extends CommandGroup{
 		}
 		addSequential(new BBGoDistance(0.5));
 		addSequential(new BBGoToAngle(turn));
-		addSequential(new BBGoDistance(7.8));
+		addSequential(new BBGoDistance(distanceForward));
 		addSequential(new BBGoToAngle(secondTurn));
-		addSequential(new BBGoDistance(0.5));
-		addSequential(new Outtake(1, 0.8));
+		addSequential(new BBGoDistance(1.5));
+		addSequential(new Outtake(1, 0.2));
 	}
 	
 	
