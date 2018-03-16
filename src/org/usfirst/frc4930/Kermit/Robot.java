@@ -85,12 +85,12 @@ public class Robot extends TimedRobot
     // OI must be constructed after subsystems.
     oi = new OI();
 
-    RobotMap.solenoid1.set(Constants.PTO_OFF);
+  
   }
 
   @Override
   public void disabledInit() {
-	  
+	  pto.turnOff();
   }
 
   @Override

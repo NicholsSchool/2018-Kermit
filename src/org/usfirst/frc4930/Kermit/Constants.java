@@ -70,7 +70,7 @@ public class Constants
     ELBOW_RAISE_SPD_CUBE = 0.9, //changed from 1
     ELBOW_LOWER_SPD_CUBE = -0.4,
     SHOULDER_RAISE_SPD_CUBE = 0.8,
-    SHOULDER_LOWER_SPD_CUBE = -0.1;
+    SHOULDER_LOWER_SPD_CUBE = -0.05;
 
   // encoder values for the arm
   public static final int  
