@@ -54,7 +54,11 @@ public class Arm extends Subsystem
   
 
   public void set(double speed) {
-	    if (speed > Constants.ARM_JOYSTICK_OFFSET) {
+	   if(Robot.isClimbing && (speed > Constants.ARM_JOYSTICK_OFFSET)) {
+		   climbExtend(speed);
+	    } else if(Robot.isClimbing && (speed < -Constants.ARM_JOYSTICK_OFFSET)) {
+	    	climbRetract(speed);
+	    } else  if (speed > Constants.ARM_JOYSTICK_OFFSET) {
 	    	extend(speed);
 	    } else if (speed < -Constants.ARM_JOYSTICK_OFFSET) {    	
 	    	retract(speed);
@@ -161,6 +165,24 @@ public class Arm extends Subsystem
   	    }
     
     updatePosition();
+  }
+  
+  public void climbExtend(double joystickVal) {
+	  joystickVal = Math.abs(joystickVal);
+	  double elbowSpeed = 0.4 * joystickVal;
+	  double shoulderSpeed = 0.2;
+	  
+	  lElbow.set(elbowSpeed);
+	  lShoulder.set(shoulderSpeed);
+  }
+  
+  public void climbRetract(double joystickVal){
+	  joystickVal = Math.abs(joystickVal);
+	  double elbowSpeed = Constants.ELBOW_LOWER_SPD_CUBE * joystickVal;
+	  double shoulderSpeed = 0.2;
+	  
+	  lElbow.set(elbowSpeed);
+	  lShoulder.set(shoulderSpeed);
   }
   
   public static final int

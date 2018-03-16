@@ -148,6 +148,7 @@ public class AutoPaths extends CommandGroup{
 
 	//2 IN TEST PHASE
 	private void leftTwoCubesSwitch(boolean startingLeft) {
+		System.out.println("RUNNING CORRESPONDING TWO CUBES SWITCH");
 		double turn;
 		if(startingLeft){
 			turn = -60;
@@ -176,6 +177,7 @@ public class AutoPaths extends CommandGroup{
 	
 	//3 WORKING
 	private void correspondingScale(boolean startingLeft) {
+		System.out.println("RUNNING CORRESPONDING SCALE");
 		double turn;
 		if(startingLeft){
 			turn = 45;
@@ -211,6 +213,7 @@ public class AutoPaths extends CommandGroup{
 	
 	//4 WORKING
 	private void oppositeSideSwitchFromBack(boolean startingLeft){
+		System.out.println("RUNNING OPPOSITE SWITCH");
 		double turn;
 		if(startingLeft){
 			turn = 80;
@@ -251,6 +254,7 @@ public class AutoPaths extends CommandGroup{
 	
 	//5 NEEDS TO BE TESTED
 	private void oppositeSideScale(boolean startingLeft) {
+		System.out.println("RUNNING OPPOSITE SCALE");
 		double turn;
 		if(startingLeft){
 			turn = Constants.TURN_RIGHT;
@@ -291,6 +295,7 @@ public class AutoPaths extends CommandGroup{
 	
 	//9 
 	private void middlePathHighGear(boolean goLeft){
+		System.out.println("RUNNING MIDDLE PATH HIGH GEAR");
 		double turn;
 		double secondTurn;
 		if(goLeft){
@@ -332,6 +337,7 @@ public class AutoPaths extends CommandGroup{
 	
 	//10 WORKING
 	private void middlePath(boolean goLeft) {
+		System.out.println("RUNNING MIDDLE PATH");
 		double turn;
 		double secondTurn;
 		if(goLeft){

@@ -86,8 +86,10 @@ public class OI
     j2b1.whileHeld(new ClawOpen()); // Set True 
     j2b1.whenReleased(new ClawClose()); // Set False 
 
-    j2b9.whenPressed(new ArmMaintainOn());
-    j2b10.whenPressed(new ArmMaintainOff());
+    j2b11.whenPressed(new ToggleClimbing());
+    
+ //   j2b9.whenPressed(new ArmMaintainOn());
+ //   j2b10.whenPressed(new ArmMaintainOff());
 
   //  j0b8.whenPressed(new BBGoDistance(4, true, 0.8));
     

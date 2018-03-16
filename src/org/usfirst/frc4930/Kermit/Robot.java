@@ -1,6 +1,7 @@
 
 package org.usfirst.frc4930.Kermit;
 
+import org.usfirst.frc4930.Kermit.autonomous.AutoPaths;
 import org.usfirst.frc4930.Kermit.sensors.Cameras;
 import org.usfirst.frc4930.Kermit.sensors.Dial;
 import org.usfirst.frc4930.Kermit.sensors.LimitSwitch;
@@ -54,6 +55,8 @@ public class Robot extends TimedRobot
   public static boolean ptoOn = false;
   public static boolean dropped = false;
   public static boolean clawOpen = false;
+  
+  public static boolean isClimbing = false;
 
   public static boolean inAuto;
   
@@ -82,6 +85,7 @@ public class Robot extends TimedRobot
     // OI must be constructed after subsystems.
     oi = new OI();
 
+    RobotMap.solenoid1.set(Constants.PTO_OFF);
   }
 
   @Override
@@ -105,7 +109,7 @@ public class Robot extends TimedRobot
 	RobotMap.ahrs.reset();
 	RobotMap.solenoid0.set(Constants.SHIFTER_LOW_GEAR);
 	
-    autonomousCommand = chooser.getSelected();
+    autonomousCommand = new AutoPaths();
     // schedule the autonomous command (example)
     if (autonomousCommand != null)
       autonomousCommand.start();
@@ -148,7 +152,7 @@ public class Robot extends TimedRobot
 	  int pref2 = preference2Dial.getPosition();
 	  int toggleNum = ((RobotMap.toggleSwitch.get()) ? 1 : 0);
 	  
-	  System.out.println(status + " " + toggleNum  + " " + pref1  + " " + pref2 );
+	//  System.out.println(status + " " + toggleNum  + " " + pref1  + " " + pref2 );
   
 	  	SmartDashboard.putNumber("SHOULDER ENCODER: ",
 			RobotMap.lShoulder.getSelectedSensorPosition(0));
