@@ -106,6 +106,7 @@ public class AutoPaths extends CommandGroup{
 	//1 WORKING
 	private void correspondingSwitch(boolean startingLeft) {
 		System.out.println("RUNNING CORRESPONDING SWITCH");
+		RobotMap.lElbow.set(0.2);
 		double turn;
 		if(startingLeft){
 			turn = 80;
@@ -149,6 +150,7 @@ public class AutoPaths extends CommandGroup{
 	//2 IN TEST PHASE
 	private void leftTwoCubesSwitch(boolean startingLeft) {
 		System.out.println("RUNNING CORRESPONDING TWO CUBES SWITCH");
+		RobotMap.lElbow.set(0.2);
 		double turn;
 		if(startingLeft){
 			turn = -60;
@@ -214,6 +216,7 @@ public class AutoPaths extends CommandGroup{
 	//4 WORKING
 	private void oppositeSideSwitchFromBack(boolean startingLeft){
 		System.out.println("RUNNING OPPOSITE SWITCH");
+		RobotMap.lElbow.set(0.2);
 		double turn;
 		if(startingLeft){
 			turn = 80;
@@ -298,6 +301,7 @@ public class AutoPaths extends CommandGroup{
 		System.out.println("RUNNING MIDDLE PATH HIGH GEAR");
 		double turn;
 		double secondTurn;
+		RobotMap.lElbow.set(0.2);
 		if(goLeft){
 			turn = -30;
 			secondTurn = 27;
@@ -329,8 +333,8 @@ public class AutoPaths extends CommandGroup{
 		addSequential(new BBGoDistance(0.5));
 		addSequential(new BBGoToAngle(turn, true));
 		addSequential(new HighGear());
-		addSequential(new BBGoDistance(9, true, 1.0));
-		addSequential(new BBGoToAngle(secondTurn));
+		addSequential(new BBGoDistance(9.4, true, 1.0));
+		addSequential(new BBGoToAngle(secondTurn));													
 		addSequential(new BBGoDistance(0.75));
 		addSequential(new Outtake(5, 0.6));
 	}
@@ -340,8 +344,9 @@ public class AutoPaths extends CommandGroup{
 		System.out.println("RUNNING MIDDLE PATH");
 		double turn;
 		double secondTurn;
+		RobotMap.lElbow.set(0.2);
 		if(goLeft){
-			turn = -30;
+			turn = -35;
 			secondTurn = 27;
 			/*
 			 * 		   {}------{}
@@ -355,7 +360,7 @@ public class AutoPaths extends CommandGroup{
 			 */
 		}
 		else {
-			turn = 30;
+			turn = 35;
 			secondTurn = -27;
 			/*
 			 * 		   {}------{}

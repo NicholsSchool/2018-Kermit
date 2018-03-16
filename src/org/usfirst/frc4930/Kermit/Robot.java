@@ -90,7 +90,7 @@ public class Robot extends TimedRobot
 
   @Override
   public void disabledInit() {
-
+	  
   }
 
   @Override
@@ -176,6 +176,9 @@ public class Robot extends TimedRobot
 	    SmartDashboard.putBoolean("UPPER ARM UP LSWITCH", RobotMap.uArmUpLSwitch.get());
 	    SmartDashboard.putBoolean("UPPER ARM DOWN SWITCH", RobotMap.uArmDownLSwitch.get());
 	    SmartDashboard.putBoolean("TOGGLE SWITCH: ", RobotMap.toggleSwitch.get());
+	    
+	    SmartDashboard.putBoolean("ARM CIMBING: ", Robot.isClimbing);
+	    SmartDashboard.putBoolean("PTO ", Robot.ptoOn);
   }
   
 
