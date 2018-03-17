@@ -140,7 +140,7 @@ public class RobotMap
     solenoid3 = new Solenoid(50, 3); //Claw
 
 
-    solenoid0.set(Constants.SHIFTER_LOW_GEAR);  //Shifter Default: High Gear
+    solenoid0.set(Constants.SHIFTER_HIGH_GEAR);  //Shifter Default: High Gear
     solenoid1.set(Constants.PTO_OFF);  //PTO: Default: Off
     solenoid2.set(Constants.DROPWHEEL_RAISE); //DropWheel Default: Raised
     solenoid3.set(Constants.CLAW_CLOSE);  //Claw Default: Closed

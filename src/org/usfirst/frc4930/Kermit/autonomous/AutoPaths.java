@@ -182,9 +182,9 @@ public class AutoPaths extends CommandGroup{
 	private void correspondingScale(boolean startingLeft) {
 		System.out.println("RUNNING CORRESPONDING SCALE");
 		double turn;
-		RobotMap.lElbow.set(0.2);
+
 		if(startingLeft){
-			turn = 80;
+			turn = 45;
 			/*
 			 * 		   {}------{}
 			 * 	      /
@@ -197,7 +197,7 @@ public class AutoPaths extends CommandGroup{
 			 */
 		}
 		else {
-			turn = -80;
+			turn = -45;
 			/*
 			 * 		   {}------{}
 			 * 	                 \
@@ -209,13 +209,12 @@ public class AutoPaths extends CommandGroup{
 			 *                        *
 			 */
 		}
-		addSequential(new BBGoDistance(23, false, 0.75));
+	
+		addSequential(new BBGoDistance(22, false, 0.9));
 		addSequential(new BBGoToAngle(turn));
-		addSequential(new DRGoDistance(1, -0.7));
+	//	addSequential(new DRGoDistance(1, -0.7));
 	    addSequential(new ArmToPosition(Arm.SCALE_POSITION, 1.0));
-	    addSequential(new BBGoDistance(3, false, 0.5));
-		addSequential(new Outtake(1, 0.7));
-		addSequential(new BBGoDistance(-1.5));
+		addSequential(new Outtake(1, 0.8));
 		addSequential(new ArmToPosition(Arm.DOWN_POSITION, 1.0));
 	}
 	

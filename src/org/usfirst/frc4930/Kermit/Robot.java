@@ -129,7 +129,7 @@ public class Robot extends TimedRobot
   public void teleopInit() {
 	  inAuto = false;
 	  status = "TeleOp";
-	  
+	  RobotMap.solenoid0.set(Constants.SHIFTER_HIGH_GEAR);
     if (autonomousCommand != null)
       autonomousCommand.cancel();
     RobotMap.lDrvMSTR.setSelectedSensorPosition(0, 0, 100);
@@ -179,6 +179,7 @@ public class Robot extends TimedRobot
 	    
 	    SmartDashboard.putBoolean("ARM CIMBING: ", Robot.isClimbing);
 	    SmartDashboard.putBoolean("PTO ", Robot.ptoOn);
+	    SmartDashboard.putBoolean("LOW GEAR ", Robot.shifterInLowGear);
   }
   
 
