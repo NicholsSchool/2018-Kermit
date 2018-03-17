@@ -144,7 +144,7 @@ public class AutoPaths extends CommandGroup{
 		
 	//	addSequential(new BBGoDistance(2.5));
 	//	addSequential(new BBGoDistance(0.5));
-		addSequential(new DRGoDistance(3, 0.7));
+		addSequential(new DRGoDistance(1.5, 0.7));
 		addSequential(new Outtake(1, 0.4));
 	}
 
@@ -367,9 +367,9 @@ public class AutoPaths extends CommandGroup{
 			 */
 		}
 		else {
-			turn = 32;
+			turn = 29;
 			secondTurn = -31;
-			distanceForward = 5.7;
+			distanceForward = 5.5;
 			/*
 			 * 		   {}------{}
 			 * 	     
