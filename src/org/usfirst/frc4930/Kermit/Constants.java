@@ -52,10 +52,10 @@ public class Constants
 	ELBOW_RELATIVE_SPD = 0.6,
 	ARM_LERP_T = 0.85,
   
-  	INTAKE_SPEED = -1.0,
+  	INTAKE_SPEED = -0.7,
   	OUTTAKE_SPEED = 1.0,
   	
-    GRIPPER_HOLD_SPD = -0.1,
+    GRIPPER_HOLD_SPD = -0.27,
   	
   	LOWER_MAST_SPEED = -0.4,
     RAISE_MAST_SPEED = 0.4,
@@ -68,8 +68,8 @@ public class Constants
   	
   	//============CHANGE THESE============
     ELBOW_RAISE_SPD_CUBE = 0.95, //changed from 1
-    ELBOW_LOWER_SPD_CUBE = -0.4,
-    SHOULDER_RAISE_SPD_CUBE = 1.0,
+    ELBOW_LOWER_SPD_CUBE = -0.6,
+    SHOULDER_RAISE_SPD_CUBE = 0.95,
     SHOULDER_LOWER_SPD_CUBE = -0.25;
 
   // encoder values for the arm

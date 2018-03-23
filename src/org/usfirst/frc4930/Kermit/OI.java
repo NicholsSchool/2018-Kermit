@@ -1,4 +1,3 @@
-
 package org.usfirst.frc4930.Kermit;
 
 import org.usfirst.frc4930.Kermit.commands.*;
@@ -73,9 +72,12 @@ public class OI
     j1b10.whenPressed(new DisengagePTO()); // Set False
 
     // Gripper
-    j2b3.whileHeld(new Intake());
-    j2b5.whileHeld(new Outtake());
-    j2b2.whileHeld(new Outtake(0, 0.2)); // "Toss"
+    j2b1.whileHeld(new Intake());
+ //   j2b6.whileHeld(new Outtake(0, 0.6));
+//    j2b5.whileHeld(new Outtake(0, 0.15));
+    j2b2.whileHeld(new Outtake(0, 0.27)); // "Toss"
+    j2b3.whileHeld(new Outtake(0, 0.7));
+    j2b4.whileHeld(new Outtake());
 
     // DropWheel (Solenoid 2)
     // j1b9.whenPressed(new LowerDropWheel()); //Set True
@@ -84,8 +86,8 @@ public class OI
     j1b1.whenReleased(new RaiseDropWheel());
 
     // Claw (Solenoid 4)
-    j2b1.whileHeld(new ClawOpen()); // Set True 
-    j2b1.whenReleased(new ClawClose()); // Set False 
+   // j2b1.whileHeld(new ClawOpen()); // Set True 
+  //  j2b1.whenReleased(new ClawClose()); // Set False 
 
     j2b11.whenPressed(new ToggleClimbing());
     

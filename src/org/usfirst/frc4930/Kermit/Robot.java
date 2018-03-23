@@ -2,18 +2,8 @@
 package org.usfirst.frc4930.Kermit;
 
 import org.usfirst.frc4930.Kermit.autonomous.AutoPaths;
-import org.usfirst.frc4930.Kermit.sensors.Cameras;
-import org.usfirst.frc4930.Kermit.sensors.Dial;
-import org.usfirst.frc4930.Kermit.sensors.LimitSwitch;
-import org.usfirst.frc4930.Kermit.sensors.NavX;
-import org.usfirst.frc4930.Kermit.subsystems.Arm;
-import org.usfirst.frc4930.Kermit.subsystems.Claw;
-import org.usfirst.frc4930.Kermit.subsystems.DriveTrain;
-import org.usfirst.frc4930.Kermit.subsystems.DropWheel;
-import org.usfirst.frc4930.Kermit.subsystems.Gripper;
-import org.usfirst.frc4930.Kermit.subsystems.Mast;
-import org.usfirst.frc4930.Kermit.subsystems.PTO;
-import org.usfirst.frc4930.Kermit.subsystems.Shifter;
+import org.usfirst.frc4930.Kermit.sensors.*;
+import org.usfirst.frc4930.Kermit.subsystems.*;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
