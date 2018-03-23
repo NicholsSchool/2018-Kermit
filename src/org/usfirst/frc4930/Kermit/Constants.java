@@ -52,10 +52,10 @@ public class Constants
 	ELBOW_RELATIVE_SPD = 0.6,
 	ARM_LERP_T = 0.85,
   
-  	INTAKE_SPEED = -0.7,
+  	INTAKE_SPEED = -1.0,
   	OUTTAKE_SPEED = 1.0,
   	
-    GRIPPER_HOLD_SPD = -0.27,
+    GRIPPER_HOLD_SPD = -0.1,
   	
   	LOWER_MAST_SPEED = -0.4,
     RAISE_MAST_SPEED = 0.4,
