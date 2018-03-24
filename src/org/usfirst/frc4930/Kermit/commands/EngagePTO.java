@@ -13,7 +13,6 @@ public class EngagePTO extends Command {
 	protected void initialize() {}
  
 	protected void execute() {  
-		if (Robot.oi.j1b7.get() || (Robot.oi.j2b7.get()))     
 			Robot.pto.turnOn();
 	}
 	  

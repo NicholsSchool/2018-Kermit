@@ -114,8 +114,8 @@ public class Constants
 
   // Camera resolution
   public static final int 
-  	LENGTH = 320,
-  	HEIGHT = 240, 
+  	LENGTH = 192,
+  	HEIGHT = 144, 
   	FRAMES_PER_SECOND = 5;
 
 }

@@ -10,7 +10,7 @@ public class ToggleCamera extends Command{
 	  protected void initialize() {}
 
 	  protected void execute() {
-	    Robot.cameras.toggleCamera();
+	//    Robot.cameras.toggleCamera();
 	  }
 
 	  protected boolean isFinished() {

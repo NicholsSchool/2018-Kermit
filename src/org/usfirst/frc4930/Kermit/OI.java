@@ -68,8 +68,8 @@ public class OI
     // PTO (Solenoid 1)
     j2b8.whenPressed(new EngagePTO()); // Set True;
     j2b10.whenPressed(new DisengagePTO()); // Set False
-    j1b8.whenPressed(new EngagePTO()); // Set True;
-    j1b10.whenPressed(new DisengagePTO()); // Set False
+ //   j1b8.whenPressed(new EngagePTO()); // Set True;
+ //   j1b10.whenPressed(new DisengagePTO()); // Set False
 
     // Gripper
     j2b3.whileHeld(new Intake());	

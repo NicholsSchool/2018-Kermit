@@ -210,7 +210,7 @@ public class AutoPaths extends CommandGroup{
 			 */
 		}
 	
-		addSequential(new BBGoDistance(22, false, 0.9));
+		addSequential(new BBGoDistance(20, false, 0.9));
 		addSequential(new BBGoToAngle(turn));
 	//	addSequential(new DRGoDistance(1, -0.7));
 	    addSequential(new ArmToPosition(Arm.SCALE_POSITION, 1.0));

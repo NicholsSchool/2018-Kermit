@@ -12,6 +12,7 @@ public class DisengagePTO extends Command{
 		  protected void initialize() {}
 
 		  protected void execute() {
+			  if(Robot.oi.j2b9.get())
 		    Robot.pto.turnOff();
 		  }
 
