@@ -42,7 +42,9 @@ public class Outtake extends Command
 
   protected void end() {
     Robot.gripper.stop();
+    if(!Robot.inAuto){
     new HoldCube().start();
+    }
   }
 
   protected void interrupted() {

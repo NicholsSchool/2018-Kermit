@@ -28,6 +28,7 @@ public class AutoPaths extends CommandGroup{
 		
 	public AutoPaths() {
 		gameData = DriverStation.getInstance().getGameSpecificMessage();
+		System.out.println(gameData);
 		preference1 = Robot.preference1Dial.getPosition();
 		preference2 = Robot.preference2Dial.getPosition();
 		switchLeft = gameData.charAt(0) == 'L';
@@ -65,6 +66,8 @@ public class AutoPaths extends CommandGroup{
 				break;
 		case 5: oppositeSideScale(startingLeft);
 				break;
+//		case 8: scale2Cube(startingLeft);
+//				break;
 		case 9: middlePathHighGear(switchLeft);
 				break;
 		case 10: middlePath(switchLeft);
@@ -299,6 +302,87 @@ public class AutoPaths extends CommandGroup{
 		addSequential(new BBGoToAngle(-turn));
 		addSequential(new BBGoDistance(2));
 		addSequential(new Outtake(1, 0.8));
+	}
+	
+	//8 TESTING DO NOT USE 
+	private void scale2Cube(boolean startingLeft){
+		System.out.println("RUNNING CORRESPONDING SCALE");
+		double turn;
+		double secondTurn;
+		if(startingLeft){
+			turn = 45;
+			secondTurn = -80;
+			/*
+			 * 		   {}------{}
+			 * 	      /
+			 *       .    
+			 * 		 .         
+			 * 		/  {}------{} 
+			 *     /  
+			 *    / |
+			 *   *
+			 */
+		}
+		else {
+			turn = -45;
+			secondTurn = 80;
+			/*
+			 * 		   {}------{}
+			 * 	                 \
+			 *                    .
+			 * 		              .
+			 * 		   {}------{}  \
+			 *                      \ 
+			 *                       \
+			 *                        *
+			 */
+		}
+	
+//		addSequential(new HighGear());
+//		
+//		addSequential(new BBGoDistance(20, true, 0.9));
+//		addSequential(new BBGoToAngle(turn));
+//	//	addSequential(new DRGoDistance(1, -0.7));
+//	    addSequential(new ArmToPosition(Arm.SWITCH_POSITION, 1.0)); // Change to Scale
+//	    
+//	    addSequential(new BBGoDistance(1));
+//		addSequential(new Outtake(1, 0.8));
+//		addSequential(new BBGoToAngle(secondTurn));
+//		addSequential(new ArmToPosition(Arm.DOWN_POSITION, 1.0));
+//		
+		
+//		System.out.println("Robot In Auto: " + Robot.inAuto);
+//		addParallel(new ClawOpen());
+//		System.out.println("Opening Claw");
+//		
+//		addSequential(new BBGoDistance(4, true, 0.7));
+//		System.out.println("Going Forward 1");
+//	//	addSequential(new DRDropWheel(1.5, startingLeft, 1.0));
+//		
+//		addSequential(new BBGoDistance(4, true, 0.7));
+//		System.out.println("Going Forward 2");
+//		
+//		addParallel(new ClawClose());
+//		System.out.println("Closing Claw");
+//		
+//		addSequential( new BBGoDistance(0, true, -0.7));
+//		
+//		addSequential(new BBGoDistance(-4, true, -0.7)); // -1.5
+//		System.out.println("Going Backward");
+		
+//		if(switchLeft == scaleLeft){
+//			addSequential(new DRDropWheel(1.5, !startingLeft, 1.0));
+//			addSequential(new ArmToPosition(Arm.SWITCH_POSITION, 1.0));
+//			addSequential(new Outtake(1, 0.8));
+//		}
+//		else {
+//			addSequential(new DRDropWheel(1.5, !startingLeft, 1.0));
+//			addSequential(new BBGoDistance(-4, true, 0.7));
+//			addSequential(new BBGoToAngle(-secondTurn));
+//			addSequential(new ArmToPosition(Arm.SCALE_POSITION, 1.0));
+//			addSequential(new Outtake(1, 0.8));
+//		}
+//	
 	}
 	
 	//9 

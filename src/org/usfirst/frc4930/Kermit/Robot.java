@@ -170,6 +170,7 @@ public class Robot extends TimedRobot
 	    SmartDashboard.putBoolean("ARM CIMBING: ", Robot.isClimbing);
 	    SmartDashboard.putBoolean("PTO ", Robot.ptoOn);
 	    SmartDashboard.putBoolean("LOW GEAR ", Robot.shifterInLowGear);
+	    SmartDashboard.putBoolean("IN Auto: ", Robot.inAuto);
   }
   
 

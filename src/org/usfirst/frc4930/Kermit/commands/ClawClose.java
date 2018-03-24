@@ -18,7 +18,7 @@ public class ClawClose extends Command {
 		  }
 
 		  protected boolean isFinished() {
-		    return false;
+			  return Robot.inAuto;
 		  }
 
 		  protected void end() {

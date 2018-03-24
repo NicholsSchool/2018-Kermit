@@ -45,14 +45,14 @@ public class BBGoDistance extends Command {
 	  protected void initialize() {
 		  Robot.navX.reset();
 		  startPosition = RobotMap.lDrvMSTR.getSelectedSensorPosition(0);
-		  System.out.println("DESIRED DISTANCE: " + desiredDistance);
+		//  System.out.println("DESIRED DISTANCE: " + desiredDistance);
 	//	  System.out.println("Speed : " + speed);
-		  System.out.println("StartPosition: " + startPosition);
+	//	  System.out.println("StartPosition: " + startPosition);
 	  }
 
 	  protected void execute() {
 		  currentPosition = RobotMap.lDrvMSTR.getSelectedSensorPosition(0) - startPosition; 
-		  System.out.println("CurrentPosition: " + currentPosition);
+		//  System.out.println("CurrentPosition: " + currentPosition);
 		 
 		  if(desiredDistance > 0){
 			  Robot.driveTrain.move(speed + Constants.BB_GO_DISTANCE_OFFSET, speed);
